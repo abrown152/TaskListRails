@@ -1,0 +1,23 @@
+<h1>Tasklist Index</h1>
+
+<nav>
+  <ul>
+    <li><%= link_to "Task List", root_path %></li>
+    <li><%= link_to "Add Task", tasklist_new_url %></li>
+  </ul>
+</nav>
+
+<table border="1">
+  <tr>
+    <th>Task Name</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= link_to task.title, "tasklist/#{task.id.to_i}" %></td>
+      <td><%= task.description %></td>
+      <td><%= task.status %></td>
+    </tr>
+  <% end %>
+</table>
